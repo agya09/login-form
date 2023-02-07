@@ -6,7 +6,7 @@ TextField reusebleTextField(String text, IconData icon, bool isPasswordType,
     controller: controller,
     obscureText: isPasswordType,
     cursorColor: Colors.white,
-    style: TextStyle(color: Colors.white),
+    style: TextStyle(color: Colors.white, fontSize: 19),
     decoration: InputDecoration(
       labelText: text,
       labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),

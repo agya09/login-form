@@ -1,4 +1,5 @@
 import 'package:first_application/reuseable_widgets/reuseable_widget.dart';
+import 'package:first_application/screens/home_page.dart';
 import 'package:first_application/screens/signup_page.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _LoginState extends State<Login> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 52, 52, 53),
+          color: Color.fromARGB(255, 47, 81, 85),
         ),
         child: SingleChildScrollView(
           child: Padding(
@@ -39,7 +40,13 @@ class _LoginState extends State<Login> {
                 SizedBox(
                   height: 30,
                 ),
-                submitButton(context, true, () {}),
+                submitButton(context, true, () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                }),
+                signupOption(),
               ],
             ),
           ),
@@ -52,7 +59,10 @@ class _LoginState extends State<Login> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have an account?",
+        Padding(
+          padding: EdgeInsets.only(top: 80),
+        ),
+        const Text("Don't have an account? ",
             style: TextStyle(color: Colors.white)),
         GestureDetector(
           onTap: () {
