@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../reuseable_widgets/reuseable_widget.dart';
+import 'login_page.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -44,7 +45,10 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: 30,
                   ),
-                  submitButton(context, false, () {}),
+                  submitButton(context, false, () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Login()));
+                  }),
                 ],
               ),
             ),
