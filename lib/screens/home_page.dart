@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 81, 212, 147),
+          color: Color.fromARGB(255, 44, 44, 44),
         ),
         child: SingleChildScrollView(
           child: Padding(
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: <Widget>[
                 const Text(
-                  "Welcome to the Home Screen",
+                  "Welcome to the Home Screen ",
                   style: TextStyle(color: Colors.white),
                 ),
               ],
