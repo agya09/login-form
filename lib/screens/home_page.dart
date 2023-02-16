@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 44, 44, 44),
+          color: Color.fromARGB(255, 29, 232, 255),
         ),
         child: SingleChildScrollView(
           child: Padding(

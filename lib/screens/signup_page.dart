@@ -20,7 +20,7 @@ class _SignUpState extends State<SignUp> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
-            color: Colors.blueGrey,
+            color: Color.fromARGB(255, 29, 232, 255),
           ),
           child: SingleChildScrollView(
             child: Padding(

@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 47, 81, 85),
+          color: Color.fromARGB(255, 29, 232, 255),
         ),
         child: SingleChildScrollView(
           child: Padding(
