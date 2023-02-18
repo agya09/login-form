@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../reuseable_widgets/reuseable_widget.dart';
 import 'login_page.dart';
@@ -15,6 +16,22 @@ class _SignUpState extends State<SignUp> {
   TextEditingController _usernameTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Future createUser({required String name, required String email}) async {
+      final docUser = FirebaseFirestore.instance.collection('users').doc();
+
+      final user = User(
+        id: docUser.id,
+        name: name,
+        email: email,
+        created_at: DateTime.now(),
+        age: 21,
+      );
+      final json = user.toJson();
+
+      //create document and write data to firebase
+      await docUser.set(json);
+    }
+
     return Scaffold(
       body: Container(
           width: MediaQuery.of(context).size.width,
@@ -46,6 +63,11 @@ class _SignUpState extends State<SignUp> {
                     height: 30,
                   ),
                   submitButton(context, false, () {
+                    final name = _usernameTextController.text;
+                    final email = _emailTextController.text;
+
+                    createUser(name: name, email: email);
+
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const Login()));
                   }),
@@ -54,5 +76,39 @@ class _SignUpState extends State<SignUp> {
             ),
           )),
     );
+  }
+}
+
+class User {
+  String id;
+  final String name;
+  final String email;
+  final DateTime created_at;
+  final int age;
+
+  User({
+    this.id = '',
+    required this.name,
+    required this.email,
+    required this.created_at,
+    required this.age,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'created_at': created_at,
+      'age': age,
+    };
+
+    User fromJson(Map<String, dynamic> json) => User(
+          id: json['id'],
+          name: json['name'],
+          email: json['email'],
+          created_at: json['created_at'],
+          age: json['age'],
+        );
   }
 }
